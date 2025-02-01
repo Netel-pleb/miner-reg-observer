@@ -136,6 +136,7 @@ if __name__ == "__main__":
     # Convert hotkeys argument to a list
     hotkeys_list = [hk.strip() for hk in args.hotkeys.split(",")]
 
+
     # Initialize and start the observer
     observer = RegisterObserver(args.netuid, hotkeys_list, args.interval, args.duration)
     observer.start_observing()

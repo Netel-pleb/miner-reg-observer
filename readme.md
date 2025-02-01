@@ -59,6 +59,7 @@ python reg_observer.py --netuid 5 --hotkeys hotkey1,hotkey2,hotkey3 --interval 3
 ## Notes
 - Make sure the Discord webhook URL is updated in the script before running.
 - The script stops automatically when all hotkeys are registered or the duration ends.
+- Current webhook url in the repo is fake url. You need to change it to yours
 
 ## License
 This project is licensed under the MIT License.
