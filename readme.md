@@ -28,7 +28,7 @@ Run the script from the command line with the following arguments:
 
 ### Example Command:
 ```bash
-python resister_observer.py --netuid 5 --hotkeys hotkey1,hotkey2,hotkey3 --interval 30 --duration 60
+python reg_observer.py --netuid 5 --hotkeys hotkey1,hotkey2,hotkey3 --interval 30 --duration 60
 ```
 
 ### Explanation:

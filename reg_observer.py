@@ -8,7 +8,7 @@ import time
 
 webhook_url = "https://discord.com/api/webhooks/1335271704955715705/7z7JDnogM_EryjDhO5xGdVF9xsAWdGT0SAeNipGTxGyOXPhg0NtKgRt1SyOpGqVj2MAQ"
 
-class ResisterObserver:
+class RegisterObserver:
     def __init__(self, netuid, hotkeys, interval, duration):
         """
         Initialize the ResisterObserver class.
@@ -91,7 +91,6 @@ class ResisterObserver:
         try:
             metagraph = bt.subtensor(network="finney").metagraph(netuid=self.netuid)
             meta_hotkeys = metagraph.hotkeys
-            print(meta_hotkeys)
 
             # Create a copy of the hotkeys list to iterate over
             for hotkey in self.hotkeys[:]:
@@ -138,5 +137,5 @@ if __name__ == "__main__":
     hotkeys_list = [hk.strip() for hk in args.hotkeys.split(",")]
 
     # Initialize and start the observer
-    observer = ResisterObserver(args.netuid, hotkeys_list, args.interval, args.duration)
+    observer = RegisterObserver(args.netuid, hotkeys_list, args.interval, args.duration)
     observer.start_observing()
