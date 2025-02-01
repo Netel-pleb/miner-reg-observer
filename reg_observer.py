@@ -44,7 +44,7 @@ class RegisterObserver:
         """
         timestamp = self.get_current_utc_time()
         embed = {
-            "title": "New Hotkey Registered in Subnet",
+            "title": "😍 New Hotkey Registered in Subnet",
             "description": f"Hotkey `{hotkey}` has been registered in subnet `{self.netuid}`.",
             "fields": [
                 {"name": "UID", "value": str(uid), "inline": True},
@@ -92,13 +92,12 @@ class RegisterObserver:
             metagraph = bt.subtensor(network="finney").metagraph(netuid=self.netuid)
             meta_hotkeys = metagraph.hotkeys
 
-            # Create a copy of the hotkeys list to iterate over
             for hotkey in self.hotkeys[:]:
                 if hotkey in meta_hotkeys:
                     miner_uid = meta_hotkeys.index(hotkey)
                     print(f"[{self.get_current_utc_time()}] Hotkey {hotkey} is registered with UID {miner_uid}. Sending webhook...")
                     self.webhook_raiser(hotkey, miner_uid)
-                    self.hotkeys.remove(hotkey)  # Remove the registered hotkey from the list
+                    self.hotkeys.remove(hotkey)  
                 else:
                     print(f"[{self.get_current_utc_time()}] Hotkey {hotkey} is NOT registered in the metagraph.")
         except Exception as e:
@@ -112,7 +111,7 @@ class RegisterObserver:
         end_time = time.time() + (self.duration * 60)
 
         while time.time() < end_time:
-            if not self.hotkeys:  # Stop if all hotkeys are registered
+            if not self.hotkeys:  
                 print(f"[{self.get_current_utc_time()}] All hotkeys are registered. Stopping observation.")
                 break
             try:
@@ -133,10 +132,8 @@ if __name__ == "__main__":
     parser.add_argument("--duration", type=int, default=30, help="Duration (in minutes) to run the observer. Default is 30 minutes.")
     args = parser.parse_args()
 
-    # Convert hotkeys argument to a list
     hotkeys_list = [hk.strip() for hk in args.hotkeys.split(",")]
 
 
-    # Initialize and start the observer
     observer = RegisterObserver(args.netuid, hotkeys_list, args.interval, args.duration)
     observer.start_observing()
