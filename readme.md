@@ -1,4 +1,4 @@
-# ResisterObserver
+# RegisterObserver
 
 A Python script to monitor the registration of specific hotkeys in a Bittensor subnet's metagraph. Sends webhook notifications to Discord when a hotkey is detected as registered.
 
