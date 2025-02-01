@@ -24,7 +24,7 @@ Run the script from the command line with the following arguments:
 
 ### Optional Arguments:
 - `--interval`: The interval (in seconds) between checks. Default is `20` seconds.
-- `--duration`: The total runtime (in minutes) for the observer. Default is `30` minutes.
+- `--duration`: The total runtime (in minutes) for the observer. Default is `120` minutes.
 
 ### Example Command:
 ```bash
