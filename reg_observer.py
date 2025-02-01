@@ -129,7 +129,7 @@ if __name__ == "__main__":
     parser.add_argument("--netuid", type=int, required=True, help="The netuid of the subnet to observe.")
     parser.add_argument("--hotkeys", type=str, required=True, help="Comma-separated list of hotkeys to observe.")
     parser.add_argument("--interval", type=int, default=20, help="Interval (in seconds) between checks. Default is 20 seconds.")
-    parser.add_argument("--duration", type=int, default=30, help="Duration (in minutes) to run the observer. Default is 30 minutes.")
+    parser.add_argument("--duration", type=int, default=120, help="Duration (in minutes) to run the observer. Default is 30 minutes.")
     args = parser.parse_args()
 
     hotkeys_list = [hk.strip() for hk in args.hotkeys.split(",")]
